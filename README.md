@@ -2,6 +2,7 @@
      ./env/env.sh
 如果打印 3 个 container已经存在，可以先docker rm -f 那3个container
 再重新执行env.sh.
+
 2. 然后启动site:
    ./bin/site daemon -c /home/lphilip/go/src/dops-git106.fortinet-us.com/fortiot/daemon/manager/builds/config/site/config.json
 此时数据库表会添加到docker中  ot_postgres中
@@ -13,6 +14,7 @@ psql -U test -h localhost -d testdb
 SELECT table_name
 FROM information_schema.tables
 WHERE table_schema = 'public';
+
 4. 建立ssh tunnul映射8080端口，这样可以通过笔记本postman访问http server
 ssh -L 8080:localhost:8080 lphilip@172.19.152.135
 
